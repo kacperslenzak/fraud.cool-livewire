@@ -1,5 +1,5 @@
 <x-app-layout>
-
+    @section('title', 'dashboard | ')
     <!-- Main Content Area -->
     <div class="flex-1 p-10 flex-col">
         <h1 class="text-white font-bold text-2xl">Welcome back</h1>
