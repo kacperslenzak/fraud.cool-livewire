@@ -6,6 +6,7 @@ use App\Http\Controllers\LinksController;
 use App\Http\Controllers\AnalyticsController;
 use App\Http\Controllers\AdminController;
 use App\Http\Middleware\AdminMiddleware;
+use App\Http\Controllers\MetaImageController;
 
 Route::view('/', 'welcome');
 
@@ -39,3 +40,6 @@ require __DIR__.'/auth.php';
 
 Route::get('/{username}', [ProfileController::class, 'showUserProfile'])
     ->name('profile');
+
+Route::get('/image/{username}', [MetaImageController::class, 'show'])
+    ->name('image');

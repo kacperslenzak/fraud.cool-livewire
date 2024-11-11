@@ -13,6 +13,17 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
 
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <meta name="description" content="fraud.cool #1 bio link">
+        <meta content="website" property="og:type">
+        <meta content="{{'@'}}{{ $user->name }} | fraud.cool" property="og:title">
+        <meta content="" property="og:description">
+        <meta content="{{'@'}}{{ $user->name }} | fraud.cool" name="author">
+        <meta content="#FFFFFF" name="theme-color">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta property="og:image" content="{{ url('image/'.$user->name) }}">
+
         <!-- Scripts -->
         @vite(['resources/css/app.scss', 'resources/js/app.js'])
     </head>
