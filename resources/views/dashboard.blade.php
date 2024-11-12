@@ -1,20 +1,19 @@
 <x-app-layout>
     @section('title', 'dashboard | ')
     <!-- Main Content Area -->
-    <div class="flex-1 p-10 flex-col">
+    <div class="flex-1 p-4 xl:p-10 flex-col">
         <h1 class="text-white font-bold text-2xl">Welcome back</h1>
         <p class="text-white/50">Here you can customize your biolink</p>
         <hr class="my-4 border-white/10" />
 
         <form action="{{ route('dashboard.update') }}" method="POST">
             @csrf
-            <div class="grid grid-rows-1 grid-cols-2 gap-12">
+            <div class="grid grid-cols-1 xl:grid-cols-2 gap-8 xl:gap-12">
                 <div class="group space-y-8">
-
                     <div class="space-y-2">
                         <label for="link" class="text-white font-medium">Link</label>
-                        <div class="flex">
-                            <div class="bg-zinc-900 rounded-md py-2 px-4">
+                        <div class="flex flex-wrap">
+                            <div class="bg-zinc-900 rounded-md py-2 px-4 mb-2 xl:mb-0">
                                 <p class="text-white/50 font-medium">fraud.cool/</p>
                             </div>
                             <input type="text" class="bg-transparent outline-none border-white/20 text-white/50 rounded-md mx-2" value="hex" disabled />
@@ -152,7 +151,7 @@
                 </div>
             @endif
 
-            <button class="bg-white text-black px-12 py-2 rounded-md font-medium mt-8" type="submit">Save</button>
+            <button class="bg-white text-black px-12 py-2 rounded-md font-medium mt-8 w-full xl:w-auto" type="submit">Save</button>
         </form>
     </div>
 
