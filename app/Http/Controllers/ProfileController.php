@@ -37,7 +37,7 @@ class ProfileController extends Controller
 
     public function showUserProfile($username)
     {
-        $user = User::where('name', $username)->firstOrFail();
+        $user = User::whereRaw('LOWER(name) = ?', [strtolower($username)])->firstOrFail();
 
         $user->profileViews()->firstOrCreate(['user_id' => $user->id, 'viewer_ip' => request()->ip()]);
 
