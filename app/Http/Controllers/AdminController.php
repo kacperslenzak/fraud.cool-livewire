@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
-
+use App\Events\AdminNotification;
 class AdminController extends Controller
 {
     public function users()
@@ -31,6 +31,8 @@ class AdminController extends Controller
 
         $user->is_admin = !$user->is_admin;
         $user->save();
+
+        event(new AdminNotification('Admin status set for: ' . $user->name . ' (' . $user->email . '). Set by ' . auth()->user()->name . ' (' . auth()->user()->email . ').'));
         
         return redirect()->back()->with('success', 'Admin status updated successfully');
     }
@@ -42,6 +44,9 @@ class AdminController extends Controller
         }
 
         $user->delete();
+
+        event(new AdminNotification('User deleted: ' . $user->name . ' (' . $user->email . '). Deleted by ' . auth()->user()->name . ' (' . auth()->user()->email . ').'));
+
         return redirect()->back();
     }
 }
