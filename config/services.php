@@ -36,7 +36,8 @@ return [
     ],
 
     'discord' => [
-        'register_webhook' => 'https://discord.com/api/webhooks/1256067266189987860/YhHnJLtj9EP1hCHOIwdLI9ZWqLa5T-nwNSLnTkdJJabq0aCTQsqMdhl6jKujrmqHfueg'
+        'register_webhook' => 'https://discord.com/api/webhooks/1256067266189987860/YhHnJLtj9EP1hCHOIwdLI9ZWqLa5T-nwNSLnTkdJJabq0aCTQsqMdhl6jKujrmqHfueg',
+        'invite' => 'https://discord.gg/yTYFJGCVfd'
     ]
 
 ];
