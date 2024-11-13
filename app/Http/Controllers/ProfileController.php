@@ -39,6 +39,10 @@ class ProfileController extends Controller
     {
         $user = User::whereRaw('LOWER(name) = ?', [strtolower($username)])->firstOrFail();
 
+        if (!$user) {
+            return redirect()->route('index');
+        }
+
         $user->profileViews()->firstOrCreate(['user_id' => $user->id, 'viewer_ip' => request()->ip()]);
 
         return view('profile', compact('user'));
