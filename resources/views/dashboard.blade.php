@@ -16,7 +16,7 @@
                             <div class="bg-zinc-900 rounded-md py-2 px-4 mb-2 xl:mb-0">
                                 <p class="text-white/50 font-medium">fraud.cool/</p>
                             </div>
-                            <input type="text" class="bg-transparent outline-none border-white/20 text-white/50 rounded-md mx-2" value="hex" disabled />
+                            <input type="text" class="bg-transparent outline-none border-white/20 text-white/50 rounded-md mx-2" value="{{ auth()->user()->username }}" disabled />
                         </div>
                     </div>
             
