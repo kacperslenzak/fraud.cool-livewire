@@ -8,7 +8,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Middleware\AdminMiddleware;
 use App\Http\Controllers\MetaImageController;
 
-Route::view('/', 'welcome');
+Route::view('/', 'welcome')->name('index');
 
 Route::prefix('dashboard')->middleware(['auth', 'verified'])->group(function () {
     Route::get('/', [ProfileController::class, 'index'])
