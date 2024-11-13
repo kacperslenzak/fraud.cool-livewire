@@ -10,7 +10,7 @@ class AdminController extends Controller
     public function users()
     {
         $users = User::all();
-        return view('users', compact('users'));
+        return view('dashboard.users', compact('users'));
     }
 
     public function toggleAdmin(User $user)

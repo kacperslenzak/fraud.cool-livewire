@@ -8,11 +8,11 @@ class LinksController extends Controller
 {
     public function index()
     {
-        return view('links');
+        return view('dashboard.links');
     }
 
     public function linkTypes()
     {
-        return view('link-types');
+        return view('dashboard.link-types');
     }
 }
