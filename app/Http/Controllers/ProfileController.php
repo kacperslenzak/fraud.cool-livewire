@@ -37,7 +37,7 @@ class ProfileController extends Controller
 
     public function showUserProfile($username)
     {
-        $user = User::whereRaw('LOWER(name) = ?', [strtolower($username)])->firstOrFail();
+        $user = User::whereRaw('LOWER(name) = ?', [strtolower($username)])->first();
 
         if (!$user) {
             return redirect()->route('index');
