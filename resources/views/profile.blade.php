@@ -45,7 +45,7 @@
                 @if ($user->links->count() > 0)
                     <div class="flex justify-center flex-wrap gap-2 mt-6 links">
                         @foreach ($user->links as $link)
-                            <a href="{{ $link->url }}" class="text-white hover:scale-110 transition duration-200">
+                            <a href="/redirect/{{ $user->name }}/{{ $link->id }}" class="text-white hover:scale-110 transition duration-200" target="_blank">
                                 <i class="fa-brands fa-{{ $link->linkType->icon }} text-4xl"></i>
                             </a>
                         @endforeach

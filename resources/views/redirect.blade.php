@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'fraud.cool') }}</title>
+        <title>redirecting | {{ config('app.name', 'fraud.cool') }}</title>
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
@@ -19,7 +19,13 @@
     <body class="font-sans antialiased">
         <div class="min-h-screen flex justify-center items-center bg-black/[.975]">
 
-            <h1>Redirecting to</h1>
+            <h1 class="text-white text-3xl font-bold">Redirecting to {{$url}}</h1>
+
+            <script>
+                setTimeout(() => {
+                    window.location.href = "{{$url}}";
+                }, 500);
+            </script>
 
         </div>
     </body>

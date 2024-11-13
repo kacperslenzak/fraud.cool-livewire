@@ -7,6 +7,7 @@ use App\Http\Controllers\AnalyticsController;
 use App\Http\Controllers\AdminController;
 use App\Http\Middleware\AdminMiddleware;
 use App\Http\Controllers\MetaImageController;
+use App\Http\Controllers\UrlViewController;
 
 Route::view('/', 'welcome')->name('index');
 
@@ -43,3 +44,6 @@ Route::get('/{username}', [ProfileController::class, 'showUserProfile'])
 
 Route::get('/image/{username}', [MetaImageController::class, 'show'])
     ->name('image');
+
+Route::get('/redirect/{username}/{link_id}', [UrlViewController::class, 'redirect'])
+    ->name('redirect');
