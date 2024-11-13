@@ -40,3 +40,23 @@ body::-webkit-scrollbar {
 .red-sparkles {
     background-image: url('../images/sparkle_red.gif');
 }
+
+@keyframes slide-up {
+    0% {
+        opacity: 0;
+        transform: translateY(80px)
+    }
+
+    60% {
+        opacity: 1;
+        transform: translateY(2px)
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+.profile-card {
+    animation: slide-up 1s ease;
+}
