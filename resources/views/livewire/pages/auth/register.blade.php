@@ -21,7 +21,17 @@ new #[Layout('layouts.guest')] class extends Component
     public function register(): void
     {
         $validated = $this->validate([
-            'name' => ['required', 'string', 'max:255', 'unique:'.User::class],
+            'name' => [
+                'required', 
+                'string', 
+                'max:255',
+                function ($attribute, $value, $fail) {
+                    $exists = User::whereRaw('LOWER(name) = ?', [strtolower($value)])->exists();
+                    if ($exists) {
+                        $fail('The username has already been taken.');
+                    }
+                }
+            ],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'string', 'confirmed', Rules\Password::defaults()],
         ]);
