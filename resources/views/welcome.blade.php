@@ -15,7 +15,7 @@
     </head>
     <body class="font-sans antialiased bg-black/[.98]">
 
-        <div class="pointer-events-none absolute h-[500px] w-full bg-cover bg-center bg-no-repeat opacity-25 sm:h-[750px]" style="background-image:linear-gradient(rgb(255 255 255 / 0%), #090909) , url(https://r2.fakecrime.bio/assets/images/background.webp)"></div>
+        <div class="pointer-events-none absolute h-[500px] w-full bg-cover bg-center bg-no-repeat opacity-25 sm:h-[750px]" style="background-image:linear-gradient(rgb(255 255 255 / 0%), #090909) , url({{ asset('background.webp') }})"></div>
 
         <header class="mx-auto flex max-w-7xl items-center flex-col  space-y-2 sm:space-y-0 sm:flex-row justify-between px-8 py-[19px]">
             <a class="text-2xl text-white font-bold" href="/">fraud.cool</a>
@@ -25,7 +25,7 @@
         <main class="mx-auto h-auto w-full">
             <section class="relative my-36 animate-slide-up px-8 sm:mb-52 sm:mt-64">
                 <h1 class="mx-auto mb-8 max-w-4xl text-center text-3xl font-extrabold text-white sm:text-5xl">Empower Your Digital Presence Easy &amp; Fast</h1>
-                <p class="mx-auto mb-10 max-w-3xl text-center font-light text-stone-500 text-lg">Transform your story into an online masterpiece. Fakecrime makes it easy to create personal, stunning bio-pages, that reflect your unique personality &amp; creativity.</p>
+                <p class="mx-auto mb-10 max-w-3xl text-center font-light text-stone-500 text-lg">Transform your story into an online masterpiece. fraud.cool makes it easy to create personal, stunning bio-pages, that reflect your unique personality &amp; creativity.</p>
                 <div class="flex justify-center gap-4">
                     <a class="rounded-xl border border-white/25 px-6 py-3 text-center text-lg text-white duration-300 hover:border-transparent hover:bg-white hover:text-black sm:w-52" href="{{ route('login') }}">Login</a>
                     <a class="rounded-xl border-[1px] border-white-400 px-6 py-3 text-center text-lg text-white duration-300 hover:border-transparent hover:bg-white hover:text-black sm:w-52" href="{{ route('register') }}">Get Started</a>
