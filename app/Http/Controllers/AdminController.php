@@ -49,4 +49,12 @@ class AdminController extends Controller
 
         return redirect()->back();
     }
+
+    public function toggleBanned(User $user)
+    {
+        $user->banned = !$user->banned;
+        $user->save();
+
+        return redirect()->back();
+    }
 }

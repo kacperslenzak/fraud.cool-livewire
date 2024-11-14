@@ -24,6 +24,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'banned',
     ];
 
     /**
@@ -46,6 +47,7 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'banned' => 'boolean',
         ];
     }
 
@@ -76,5 +78,10 @@ class User extends Authenticatable
     public function urlViews()
     {
         return $this->hasMany(UrlView::class);
+    }
+
+    public function isBanned(): bool
+    {
+        return $this->banned;
     }
 }

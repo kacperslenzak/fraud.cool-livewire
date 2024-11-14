@@ -8,10 +8,11 @@ use App\Http\Controllers\AdminController;
 use App\Http\Middleware\AdminMiddleware;
 use App\Http\Controllers\MetaImageController;
 use App\Http\Controllers\UrlViewController;
+use App\Http\Middleware\BannedMiddleware;
 
 Route::view('/', 'welcome')->name('index');
 
-Route::prefix('dashboard')->middleware(['auth', 'verified'])->group(function () {
+Route::prefix('dashboard')->middleware(['auth', 'verified', BannedMiddleware::class])->group(function () {
     Route::get('/', [ProfileController::class, 'index'])
         ->name('dashboard');
 
@@ -35,6 +36,9 @@ Route::prefix('dashboard')->middleware(['auth', 'verified'])->group(function () 
 
     Route::get('/analytics', [AnalyticsController::class, 'index'])
         ->name('analytics');
+
+    Route::patch('/users/{user}/toggle-banned', [AdminController::class, 'toggleBanned'])
+    ->name('users.toggle-banned')->middleware(AdminMiddleware::class);
 });
 
 require __DIR__.'/auth.php';

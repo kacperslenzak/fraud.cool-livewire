@@ -24,7 +24,7 @@ class ProfileController extends Controller
             'show_views' => 'required|boolean',
             'background_effect' => 'nullable|string',
             'username_effect' => 'nullable|string',
-            'background_color' => 'nullable|string',
+            'background_color' => 'required|regex:/^#[a-f0-9]{6}$/i',
         ]);
 
         ProfileSettings::updateOrCreate(
@@ -38,6 +38,10 @@ class ProfileController extends Controller
     public function showUserProfile($username)
     {
         $user = User::whereRaw('LOWER(name) = ?', [strtolower($username)])->first();
+
+        if ($user->isBanned()) {
+            return response()->view('banned'); 
+        }
 
         if (!$user) {
             return redirect()->route('index');

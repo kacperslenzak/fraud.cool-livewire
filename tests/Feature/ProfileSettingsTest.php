@@ -12,6 +12,7 @@ test('user can update profile settings', function () {
              'card_opacity' => 80,
              'show_uid' => true,
              'show_views' => false,
+             'background_color' => '#060606',
          ])
          ->assertRedirect();
 
