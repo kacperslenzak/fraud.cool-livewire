@@ -39,12 +39,12 @@ class ProfileController extends Controller
     {
         $user = User::whereRaw('LOWER(name) = ?', [strtolower($username)])->first();
 
-        if ($user->isBanned()) {
-            return response()->view('banned'); 
-        }
-
         if (!$user) {
             return redirect()->route('index');
+        }
+        
+        if ($user->isBanned()) {
+            return response()->view('banned'); 
         }
 
         $user->profileViews()->firstOrCreate(['user_id' => $user->id, 'viewer_ip' => request()->ip()]);
