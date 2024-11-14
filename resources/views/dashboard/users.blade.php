@@ -41,6 +41,15 @@
                                             {{ $user->is_admin ? 'Remove Admin' : 'Make Admin' }}
                                         </button>
                                     </form>
+
+                                    <form method="POST" action="{{ route('users.toggle-banned', $user) }}">
+                                        @csrf
+                                        @method('PATCH')
+                                        <button type="submit" 
+                                            class="px-3 py-1 text-sm text-gray-300 hover:bg-gray-700 rounded-md border border-gray-700">
+                                            {{ $user->banned ? 'Unban' : 'Ban' }}
+                                        </button>
+                                    </form>
                                     
                                     <form method="POST" action="{{ route('users.destroy', $user) }}">
                                         @csrf
