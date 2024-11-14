@@ -41,6 +41,30 @@ body::-webkit-scrollbar {
     background-image: url('../images/sparkle_red.gif');
 }
 
+.black-sparkles {
+    background-image: url('../images/sparkle_black.gif');
+}
+
+.blue-sparkles {
+    background-image: url('../images/sparkle_blue.gif');
+}
+
+.white-sparkles {
+    background-image: url('../images/sparkle_white.gif');
+}
+
+.yellow-sparkles {
+    background-image: url('../images/sparkle_yellow.gif');
+}
+
+.green-sparkles {
+    background-image: url('../images/sparkle_green.gif');
+}
+
+.pink-sparkles {
+    background-image: url('../images/sparkle_pink.gif');
+}
+
 @keyframes slide-up {
     0% {
         opacity: 0;

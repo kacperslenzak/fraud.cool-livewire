@@ -114,6 +114,12 @@
                                 <option value="none">None</option>
                                 <option value="rainbow-text" @selected(auth()->user()->profile_settings?->username_effect === 'rainbow-text')>Rainbow</option>
                                 <option value="red-sparkles" @selected(auth()->user()->profile_settings?->username_effect === 'red-sparkles')>Red Sparkles</option>
+                                <option value="black-sparkles" @selected(auth()->user()->profile_settings?->username_effect === 'black-sparkles')>Black Sparkles</option>
+                                <option value="blue-sparkles" @selected(auth()->user()->profile_settings?->username_effect === 'blue-sparkles')>Blue Sparkles</option>
+                                <option value="green-sparkles" @selected(auth()->user()->profile_settings?->username_effect === 'green-sparkles')>Green Sparkles</option>
+                                <option value="pink-sparkles" @selected(auth()->user()->profile_settings?->username_effect === 'pink-sparkles')>Pink Sparkles</option>
+                                <option value="white-sparkles" @selected(auth()->user()->profile_settings?->username_effect === 'white-sparkles')>White Sparkles</option>
+                                <option value="yellow-sparkles" @selected(auth()->user()->profile_settings?->username_effect === 'yellow-sparkles')>Yellow Sparkles</option>
                             </select>
                         </div>
 
