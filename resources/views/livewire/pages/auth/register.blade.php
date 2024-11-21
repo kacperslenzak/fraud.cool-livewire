@@ -5,6 +5,8 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
+use Illuminate\Support\Facades\RateLimiter;
+use Illuminate\Validation\ValidationException;
 use Livewire\Attributes\Layout;
 use Livewire\Volt\Component;
 
@@ -20,6 +22,20 @@ new #[Layout('layouts.guest')] class extends Component
      */
     public function register(): void
     {
+        // Add rate limiting check before validation
+        if (! RateLimiter::attempt(
+            'register:' . request()->ip(),
+            5, // Allow 5 attempts
+            function() {
+                return;
+            },
+            60 * 60 // Per hour
+        )) {
+            throw ValidationException::withMessages([
+                'email' => ['Too many registration attempts. Please try again later.'],
+            ]);
+        }
+
         $validated = $this->validate([
             'name' => [
                 'required', 
@@ -37,8 +53,11 @@ new #[Layout('layouts.guest')] class extends Component
         ]);
 
         $validated['password'] = Hash::make($validated['password']);
-
+        $validated['ip_address'] = request()->ip();
+        $validated['registration_user_agent'] = request()->userAgent();
         event(new Registered($user = User::create($validated)));
+
+        $user->flagSuspiciousActivity();
 
         Auth::login($user);
 

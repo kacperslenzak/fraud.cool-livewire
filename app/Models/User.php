@@ -25,6 +25,8 @@ class User extends Authenticatable
         'email',
         'password',
         'banned',
+        'ip_address',
+        'registration_user_agent',
     ];
 
     /**
@@ -83,5 +85,19 @@ class User extends Authenticatable
     public function isBanned(): bool
     {
         return $this->banned;
+    }
+
+    public function flagSuspiciousActivity()
+    {
+        $recentRegistrations = static::where('created_at', '>=', now()->subHour())
+            ->where('ip_address', $this->ip_address)
+            ->count();
+
+        if ($recentRegistrations > 10) {
+            $this->banned = true;
+            $this->save();
+            
+            event(new AdminNotification("Suspicious activity detected: Multiple registrations from IP " . $this->ip_address));
+        }
     }
 }
